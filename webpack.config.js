@@ -12,11 +12,18 @@ module.exports = {
                 test: /\.ts$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
+            },
+            {
+                test: /\.glb$/,
+                use: 'file-loader'
             }
         ]
     },
+    devServer: {
+        contentBase: './dist'
+    },
     plugins: [
-        new CleanWebpackPlugin(),
+        new CleanWebpackPlugin({cleanStaleWebpackAssets: false}),
         new HtmlWebpackPlugin({
             title: 'Solar system'
         })
