@@ -14,7 +14,7 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.glb$/,
+                test: /\.(glb|jpg|jpeg)$/,
                 use: 'file-loader'
             }
         ]
@@ -29,10 +29,12 @@ module.exports = {
         })
     ],
     resolve: {
-        extensions: ['.ts', '.js']
+        extensions: ['.ts', '.js'],
+        alias: {
+            'celestial_bodies': path.resolve(__dirname, 'src/celestial_bodies')
+        }
     },
     output: {
-        //filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
     }
 }
