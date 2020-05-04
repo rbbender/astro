@@ -18,6 +18,7 @@ export const bodies: ObjectLoadProps[] = [
         radius: 2.439,
         year: 87.97,
         velocity: 2*Math.PI/87.97,
+        scale_factor: 5
     },
     {
         name: 'venus',

@@ -22,6 +22,7 @@ export class CelestialBody {
 	velocity: number;
 	year: number;
 	scale_c: number = 1;
+	scale_factor: number;
 
 	constructor(props: ObjectLoadProps)
 	{
@@ -36,6 +37,7 @@ export class CelestialBody {
 		this.velocity = props.velocity;
 		this.year = props.year;
 		this.model_path = props.model_path;
+		this.scale_factor = props.scale_factor || 1;
 	}
 
 	print(...msg: any) {
@@ -48,7 +50,8 @@ export class CelestialBody {
 
 	scale() {
 		if (this.model) {
-			this.model.scale.multiplyScalar(this.scale_c);
+			this.model.scale.multiplyScalar(this.scale_c * this.scale_factor);
+			this.model.position.setX(this.major_semiaxis/100);
 			this.model.position.setZ(this.major_semiaxis/100);
 		}
 	}

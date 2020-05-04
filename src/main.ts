@@ -1,4 +1,3 @@
-import * as _ from 'lodash';
 import * as THREE from 'three';
 import * as list from './bodiesInfos';
 import {CelestialBody} from './celestialBody';
@@ -15,12 +14,9 @@ const createSimpleScene = () => {
 	camera.position.z = 1000;
 	camera.updateProjectionMatrix();
 
-	const light = new THREE.DirectionalLight(0xffffff, 5);
-	light.position.z = 10;
-	light.position.y = 0;
-
-	console.log(light);
-	console.log(camera);
+	const light = new THREE.PointLight(0xffffff, 5, 0, 2);
+	//light.position.z = 10;
+	//light.position.y = 0;
 
 	renderer = new THREE.WebGLRenderer();
 	renderer.setSize(window.innerWidth, window.innerHeight);

@@ -7,4 +7,5 @@ export class ObjectLoadProps
 	velocity: number;
 	year: number;
 	model_path: string;
+	scale_factor?: number;
 }
